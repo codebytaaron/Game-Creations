@@ -1,6 +1,6 @@
 # Favorite Games Collection
 
-A curated collection of my **five favorite browser-based games** I’ve built, focused on simple mechanics, smooth gameplay, and clean design.
+A curated collection of my favorite browser-based games I’ve built, focused on simple mechanics, smooth gameplay, and clean design.
 
 ## ⚠️ Usage Notice
 
@@ -12,7 +12,7 @@ If you are interested in using, adapting, or collaborating on any of these games
 
 ---
 
-## My Favorite 5 Games
+## My Favorite Games
 
 - **Final Drive Frenzy**  
   https://final-drive-frenzy.vercel.app
@@ -22,6 +22,9 @@ If you are interested in using, adapting, or collaborating on any of these games
 
 - **Neon Drift Odyssey**  
   https://neon-drift-odyssey.vercel.app
+
+- **Neon Tennis Ace**  
+  https://neon-tennis-ace.vercel.app
 
 - **Sky Sprint**  
   https://sky-sprint.vercel.app
