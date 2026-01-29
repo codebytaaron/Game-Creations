@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Sky & Background */
+    --background: 200 80% 92%;
+    --foreground: 220 40% 20%;
+    
+    /* Mountain theme */
+    --sky-top: 200 85% 70%;
+    --sky-bottom: 30 90% 85%;
+    --mountain-dark: 220 30% 35%;
+    --mountain-light: 220 25% 55%;
+    --snow: 200 20% 98%;
+    
+    /* Sherpa colors */
+    --sherpa-primary: 15 85% 55%;
+    --sherpa-secondary: 35 90% 60%;
+    --sherpa-skin: 25 60% 70%;
+    
+    /* Platform colors */
+    --platform-rock: 30 40% 45%;
+    --platform-rock-light: 30 35% 60%;
+    --platform-ice: 195 80% 75%;
+    --platform-ice-light: 195 85% 88%;
+    --platform-rope: 35 60% 40%;
+    
+    /* UI Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 20%;
+    --primary: 15 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 60% 85%;
+    --secondary-foreground: 220 40% 20%;
+    --muted: 200 30% 90%;
+    --muted-foreground: 220 20% 50%;
+    --accent: 45 100% 55%;
+    --accent-foreground: 220 40% 20%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 200 30% 85%;
+    --input: 200 30% 85%;
+    --ring: 15 85% 55%;
+    --radius: 1rem;
+    
+    /* Power-up colors */
+    --powerup-rope: 280 70% 60%;
+    --powerup-boots: 15 90% 50%;
+    --powerup-oxygen: 180 80% 50%;
+    
+    /* Collectible */
+    --gold: 45 100% 50%;
+    --gold-light: 45 100% 70%;
+    
+    /* Game specific */
+    --game-success: 140 70% 45%;
+    --game-warning: 45 100% 50%;
+    --game-danger: 0 75% 55%;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(220 40% 20% / 0.15);
+    --shadow-game: 0 8px 32px -8px hsl(220 40% 20% / 0.25);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 40% 12%;
+    --foreground: 200 20% 95%;
+    --sky-top: 220 50% 20%;
+    --sky-bottom: 220 40% 30%;
+    --card: 220 40% 15%;
+    --card-foreground: 200 20% 95%;
+    --popover: 220 40% 15%;
+    --popover-foreground: 200 20% 95%;
+    --primary: 15 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 30% 25%;
+    --secondary-foreground: 200 20% 95%;
+    --muted: 220 30% 20%;
+    --muted-foreground: 200 20% 60%;
+    --accent: 45 100% 55%;
+    --accent-foreground: 220 40% 15%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 30% 25%;
+    --input: 220 30% 25%;
+    --ring: 15 85% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .game-gradient {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--sky-top)) 0%,
+      hsl(var(--sky-bottom)) 100%
+    );
+  }
+  
+  .text-game-shadow {
+    text-shadow: 2px 2px 0 hsl(var(--foreground) / 0.2);
+  }
+  
+  .platform-shadow {
+    box-shadow: 0 4px 0 hsl(var(--mountain-dark) / 0.3);
+  }
+  
+  .sherpa-bounce {
+    animation: sherpa-bounce 0.3s ease-out;
+  }
+  
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .shake {
+    animation: shake 0.5s ease-in-out;
+  }
+}
+
+@keyframes sherpa-bounce {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.9); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% { 
+    opacity: 0.8;
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes cloud-drift {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+.cloud-animation {
+  animation: cloud-drift 30s linear infinite;
+}
