@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 240 20% 4%;
+    --foreground: 180 100% 95%;
+
+    --card: 240 15% 8%;
+    --card-foreground: 180 100% 95%;
+
+    --popover: 240 15% 8%;
+    --popover-foreground: 180 100% 95%;
+
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 20% 4%;
+
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 180 30% 60%;
+
+    --accent: 45 100% 55%;
+    --accent-foreground: 240 20% 4%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 50% 20%;
+    --input: 240 15% 12%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Game-specific colors */
+    --player: 180 100% 50%;
+    --ghost: 180 80% 60%;
+    --enemy: 320 100% 60%;
+    --enemy-ranged: 280 100% 65%;
+    --boss: 0 100% 50%;
+    --energy: 45 100% 55%;
+    --health: 120 70% 45%;
+    --timer: 180 100% 50%;
+
+    /* Gradients */
+    --gradient-void: linear-gradient(180deg, hsl(240 20% 4%) 0%, hsl(260 30% 8%) 100%);
+    --gradient-neon: linear-gradient(135deg, hsl(180 100% 50%) 0%, hsl(320 100% 60%) 100%);
+    --gradient-energy: linear-gradient(90deg, hsl(45 100% 55%) 0%, hsl(30 100% 50%) 100%);
+    --gradient-health: linear-gradient(90deg, hsl(120 70% 45%) 0%, hsl(90 80% 50%) 100%);
+
+    /* Shadows */
+    --shadow-neon: 0 0 20px hsl(180 100% 50% / 0.5);
+    --shadow-enemy: 0 0 15px hsl(320 100% 60% / 0.6);
+    --shadow-accent: 0 0 25px hsl(45 100% 55% / 0.5);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 20% 4%;
+    --foreground: 180 100% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background: var(--gradient-void);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--primary)), 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  .text-glow-accent {
+    text-shadow: 0 0 10px hsl(var(--accent)), 0 0 20px hsl(var(--accent) / 0.5);
+  }
+
+  .box-glow {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .box-glow-enemy {
+    box-shadow: var(--shadow-enemy);
+  }
+
+  .box-glow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+
+  .game-panel {
+    @apply bg-card/80 backdrop-blur-sm border border-primary/30 rounded-lg;
+  }
+
+  .upgrade-card {
+    @apply bg-card border-2 border-primary/40 rounded-xl p-4 cursor-pointer
+           transition-all duration-300 hover:border-primary hover:scale-105;
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+  }
+
+  .upgrade-card:hover {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.4);
+  }
+
+  .upgrade-card.selected {
+    @apply border-accent;
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.5);
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+  }
+
+  .shake {
+    animation: shake 0.3s ease-out;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .slide-up {
+    animation: slide-up 0.4s ease-out forwards;
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
