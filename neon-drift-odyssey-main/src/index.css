@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Neon Drift - Synthwave/Cyberpunk palette */
+    --background: 230 50% 4%;
+    --foreground: 180 100% 85%;
+
+    --card: 230 50% 8%;
+    --card-foreground: 180 100% 85%;
+
+    --popover: 230 50% 6%;
+    --popover-foreground: 180 100% 85%;
+
+    --primary: 185 100% 50%;
+    --primary-foreground: 230 50% 4%;
+
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 230 30% 15%;
+    --muted-foreground: 220 20% 50%;
+
+    --accent: 150 100% 50%;
+    --accent-foreground: 230 50% 4%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 40% 20%;
+    --input: 230 40% 15%;
+    --ring: 185 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom Neon Colors */
+    --neon-cyan: 185 100% 50%;
+    --neon-pink: 320 100% 60%;
+    --neon-green: 150 100% 50%;
+    --neon-orange: 30 100% 55%;
+    --neon-purple: 280 100% 60%;
+
+    /* Glow effects */
+    --glow-cyan: 0 0 20px hsl(185 100% 50% / 0.8), 0 0 40px hsl(185 100% 50% / 0.4);
+    --glow-pink: 0 0 20px hsl(320 100% 60% / 0.8), 0 0 40px hsl(320 100% 60% / 0.4);
+    --glow-green: 0 0 20px hsl(150 100% 50% / 0.8), 0 0 40px hsl(150 100% 50% / 0.4);
+
+    /* Typography */
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+
+    --sidebar-background: 230 50% 6%;
+    --sidebar-foreground: 180 100% 85%;
+    --sidebar-primary: 185 100% 50%;
+    --sidebar-primary-foreground: 230 50% 4%;
+    --sidebar-accent: 230 30% 15%;
+    --sidebar-accent-foreground: 180 100% 85%;
+    --sidebar-border: 230 40% 20%;
+    --sidebar-ring: 185 100% 50%;
+  }
+
+  .dark {
+    --background: 230 50% 4%;
+    --foreground: 180 100% 85%;
+    --card: 230 50% 8%;
+    --card-foreground: 180 100% 85%;
+    --popover: 230 50% 6%;
+    --popover-foreground: 180 100% 85%;
+    --primary: 185 100% 50%;
+    --primary-foreground: 230 50% 4%;
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 230 30% 15%;
+    --muted-foreground: 220 20% 50%;
+    --accent: 150 100% 50%;
+    --accent-foreground: 230 50% 4%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 230 40% 20%;
+    --input: 230 40% 15%;
+    --ring: 185 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-neon-cyan {
+    color: hsl(var(--neon-cyan));
+  }
+
+  .text-neon-pink {
+    color: hsl(var(--neon-pink));
+  }
+
+  .text-neon-green {
+    color: hsl(var(--neon-green));
+  }
+
+  .glow-cyan {
+    text-shadow: var(--glow-cyan);
+  }
+
+  .glow-pink {
+    text-shadow: var(--glow-pink);
+  }
+
+  .glow-green {
+    text-shadow: var(--glow-green);
+  }
+
+  .box-glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+
+  .box-glow-pink {
+    box-shadow: var(--glow-pink);
+  }
+
+  .box-glow-green {
+    box-shadow: var(--glow-green);
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-flicker {
+    animation: flicker 0.15s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.8;
+      filter: brightness(1.2);
+    }
+  }
+
+  @keyframes flicker {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.95;
+    }
+  }
+
+  @keyframes scan-line {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  .scanline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      hsl(var(--neon-cyan) / 0.1),
+      transparent
+    );
+    animation: scan-line 8s linear infinite;
+    pointer-events: none;
+  }
+}
