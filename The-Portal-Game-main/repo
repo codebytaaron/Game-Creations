@@ -1,0 +1,8 @@
+portal-game/
+  README.md
+  .gitignore
+  portal_game/
+    __init__.py
+    main.py
+    game.py
+    content.py
