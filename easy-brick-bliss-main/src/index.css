@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 20% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 20%;
+
+    --primary: 220 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 20% 30%;
+
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 340 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 80% 55%;
+
+    --radius: 0.75rem;
+
+    /* Block colors - vibrant candy palette */
+    --block-teal: 175 70% 50%;
+    --block-coral: 15 85% 60%;
+    --block-amber: 40 90% 55%;
+    --block-violet: 270 70% 60%;
+    --block-lime: 90 60% 50%;
+    --block-sky: 200 80% 55%;
+    
+    /* Game specific */
+    --grid-bg: 220 20% 96%;
+    --grid-cell: 220 15% 92%;
+    --grid-cell-hover: 220 80% 90%;
+    --ghost-valid: 120 60% 70%;
+    --ghost-invalid: 0 60% 70%;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(220 30% 20% / 0.1);
+    --shadow-block: 0 3px 8px -2px hsl(220 30% 20% / 0.2);
+    --shadow-piece: 0 6px 16px -4px hsl(220 30% 20% / 0.25);
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 95%;
+    --card: 220 20% 14%;
+    --card-foreground: 210 20% 95%;
+    --popover: 220 20% 14%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 220 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 20%;
+    --secondary-foreground: 210 20% 90%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 60%;
+    --accent: 340 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 220 80% 60%;
+    --grid-bg: 220 20% 12%;
+    --grid-cell: 220 20% 18%;
+    --grid-cell-hover: 220 40% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-game antialiased;
+  }
+}
+
+@layer components {
+  .block-teal {
+    background: hsl(var(--block-teal));
+    box-shadow: inset 0 -3px 0 hsl(175 70% 40%), var(--shadow-block);
+  }
+  
+  .block-coral {
+    background: hsl(var(--block-coral));
+    box-shadow: inset 0 -3px 0 hsl(15 85% 50%), var(--shadow-block);
+  }
+  
+  .block-amber {
+    background: hsl(var(--block-amber));
+    box-shadow: inset 0 -3px 0 hsl(40 90% 45%), var(--shadow-block);
+  }
+  
+  .block-violet {
+    background: hsl(var(--block-violet));
+    box-shadow: inset 0 -3px 0 hsl(270 70% 50%), var(--shadow-block);
+  }
+  
+  .block-lime {
+    background: hsl(var(--block-lime));
+    box-shadow: inset 0 -3px 0 hsl(90 60% 40%), var(--shadow-block);
+  }
+  
+  .block-sky {
+    background: hsl(var(--block-sky));
+    box-shadow: inset 0 -3px 0 hsl(200 80% 45%), var(--shadow-block);
+  }
+}
+
+@layer utilities {
+  .animate-pop {
+    animation: pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .animate-clear {
+    animation: clear 0.4s ease-out forwards;
+  }
+  
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes clear {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
