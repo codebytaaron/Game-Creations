@@ -1,0 +1,132 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+// returns true if TD scored
+bool qbPlay(int &yardLine, int &down, int &yardsToGo, int &timeLeft) {
+    cout << "\n--- QB POV ---\n";
+    cout << "Defense look:\n";
+    int coverage = rand() % 3; // 0 blitz, 1 man, 2 zone
+
+    if (coverage == 0) cout << "Heavy blitz showing.\n";
+    if (coverage == 1) cout << "Man coverage.\n";
+    if (coverage == 2) cout << "Zone coverage.\n";
+
+    cout << "\nChoose your QB decision:\n";
+    cout << "1. Quick throw\n";
+    cout << "2. Wait for deep route\n";
+    cout << "3. Scramble\n";
+    cout << "4. Check down\n";
+    cout << "5. Spike ball\n";
+    cout << "Choice: ";
+
+    int choice;
+    cin >> choice;
+
+    int playTime = rand() % 5 + 4; // 4–8 seconds
+    int gain = 0;
+
+    if (choice == 1) {
+        if (coverage == 0) {
+            gain = rand() % 8 + 5;
+            cout << "Hot read completed for " << gain << " yards.\n";
+        } else {
+            gain = rand() % 6 + 3;
+            cout << "Quick throw for " << gain << " yards.\n";
+        }
+    }
+    else if (choice == 2) {
+        playTime += 3;
+        if (coverage == 2 && rand() % 100 < 55) {
+            gain = rand() % 25 + 20;
+            cout << "Deep shot CONNECTS for " << gain << " yards.\n";
+        } else {
+            cout << "Deep ball incomplete.\n";
+            gain = 0;
+        }
+    }
+    else if (choice == 3) {
+        if (coverage == 0) {
+            gain = rand() % 10 + 8;
+            cout << "QB scramble breaks pressure for " << gain << " yards.\n";
+        } else {
+            gain = rand() % 6 + 4;
+            cout << "QB scramble for " << gain << " yards.\n";
+        }
+    }
+    else if (choice == 4) {
+        gain = rand() % 6 + 4;
+        cout << "Check down gains " << gain << " yards.\n";
+    }
+    else if (choice == 5) {
+        cout << "Spike stops the clock.\n";
+        timeLeft -= 1;
+        down++;
+        return false;
+    }
+    else {
+        cout << "Miscommunication. Sack.\n";
+        gain = -5;
+        playTime += 3;
+    }
+
+    timeLeft -= playTime;
+    yardLine -= gain;
+    yardsToGo -= gain;
+
+    if (yardLine <= 0) return true;
+
+    if (yardsToGo <= 0) {
+        down = 1;
+        yardsToGo = 10;
+        cout << "First down.\n";
+    } else {
+        down++;
+    }
+
+    return false;
+}
+
+int main() {
+    srand(time(0));
+
+    int yardLine = 50;
+    int down = 1;
+    int yardsToGo = 10;
+    int timeLeft = 60;
+    bool touchdown = false;
+
+    cout << "============================================\n";
+    cout << " QB LAST DRIVE\n";
+    cout << " Western State vs Southern Coast\n";
+    cout << "============================================\n";
+    cout << "You are the QB.\n";
+    cout << "Down 6. 60 seconds left.\n";
+    cout << "Ball on the 50.\n";
+
+    while (timeLeft > 0 && down <= 4 && !touchdown) {
+        cout << "\n--------------------------------------------\n";
+        cout << "Time: " << timeLeft << "s | ";
+        cout << "Down " << down << " & " << yardsToGo;
+        cout << " | Ball on Southern Coast " << yardLine << "\n";
+
+        touchdown = qbPlay(yardLine, down, yardsToGo, timeLeft);
+    }
+
+    cout << "\n============================================\n";
+    if (touchdown) {
+        cout << "TOUCHDOWN.\n";
+        cout << "You just won the championship.\n";
+    } else if (timeLeft <= 0) {
+        cout << "Clock hits zero.\n";
+        cout << "Game over.\n";
+    } else {
+        cout << "Turnover on downs.\n";
+        cout << "Southern Coast wins.\n";
+    }
+    cout << "============================================\n";
+
+    return 0;
+}
