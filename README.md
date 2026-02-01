@@ -1,24 +1,24 @@
 # Game Creations
 
-A curated collection of browser-based games I’ve built, ranging from fast-paced arcade mechanics to strategy-driven and experimental gameplay systems.
+A curated collection of browser-based games I’ve built to explore gameplay mechanics, interaction design, and browser-based performance.
 
-This repository serves as a **central hub** for my game projects, showcasing different ideas, mechanics, and visual styles across multiple builds.
+This repository acts as a central hub for multiple standalone game projects, ranging from fast-paced arcade experiences to more experimental and strategy-driven builds.
 
 ---
 
 ## ⚠️ Usage Notice
 
-This repository is shared for **visibility and reference only**.
+This repository is shared for visibility and reference only.
 
-Please **do not use, copy, modify, deploy, or redistribute** any of these projects without contacting me first.
+Please do not use, copy, modify, deploy, or redistribute any of these projects without contacting me first.
 
-If you’re interested in using a game, adapting one, or collaborating on a new project, reach out via the link in my bio.
+If you’re interested in a specific game, a demo, or collaboration, reach out via the link in my bio.
 
 ---
 
 ## Featured Games (Live)
 
-These are some of my favorite and most polished builds:
+A selection of my most polished and complete builds:
 
 - **Final Drive Frenzy**  
   https://final-drive-frenzy.vercel.app
@@ -48,43 +48,42 @@ These are some of my favorite and most polished builds:
 
 ## Additional Game Projects
 
-This repo also includes a broader set of experiments and side projects, including:
+This repository also includes smaller experiments and side builds, each living in its own folder:
 
-- Final Drive: 2005 Rose Bowl
-- Rose Bowl Rally
-- Grid Heist Arcade
-- Neon Nights Shift
-- Easy Brick Bliss
-- Snake Game
-- The Portal Game
+- Final Drive: 2005 Rose Bowl  
+- Rose Bowl Rally  
+- Grid Heist Arcade  
+- Neon Nights Shift  
+- Easy Brick Bliss  
+- Snake Game  
+- The Portal Game  
 
-Each project lives in its own folder and represents a standalone build or gameplay concept.
+Each project represents a self-contained gameplay concept or mechanical experiment.
 
 ---
 
-## Tech Stack
+## Tech
 
 Most games are built using:
 
-- TypeScript
-- HTML
-- CSS
-- Canvas / browser-based rendering
-- Deployed via Vercel where applicable
+- TypeScript  
+- HTML  
+- CSS  
+- Canvas / browser-based rendering  
+
+Live builds are deployed via Vercel where applicable.
 
 ---
 
 ## About
 
-These games were built to:
+These projects were built to:
 
-- Experiment with mechanics and systems
-- Improve gameplay feel and responsiveness
-- Explore visual styles and UI clarity
-- Ship complete, playable browser experiences
+- Experiment with gameplay systems and mechanics  
+- Improve responsiveness and feel  
+- Explore visual style and UI clarity  
+- Ship complete, playable browser experiences  
 
 This repository reflects an ongoing process of building, testing, and refining interactive projects.
 
----
-
-If you want a specific game documented, upgraded, or turned into a full release, reach out via the link in my bio.
+If you want a specific game documented, expanded, or turned into a full release, reach out.
